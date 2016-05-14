@@ -20,7 +20,6 @@ namespace bxl_driver{
 	};
 
 	TEST_F( UnitTest , HogeNormal ) {
-
 		ASSERT_TRUE(bxl_utils::sample());
 	}
 

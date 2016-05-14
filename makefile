@@ -1,7 +1,7 @@
 #makefile
 
 # Flags passed to the C++ compiler.
-CXXFLAGS += -g -Wall -Wextra
+CXXFLAGS += -g -O1 -Wall -Werror -Wextra
 LIBS +=
 INCLUDE += -I./src/utils/
 MAIN_SRC = ./src/main/main.cxx
@@ -11,6 +11,13 @@ EXE_NAME = main.out
 
 all: $(SRC) $(MAIN_SRC) $(HEADER)
 	g++ $(INCLUDE) $(CXXFLAGS) $(LIBS) -o $(EXE_NAME) $(MAIN_SRC) $(SRC) 
+
+# Release Build
+CXX_RELEASE_FLAGS += -O2 -Wall -Werror -Wextra
+EXE_RELESE_NAME = main_release.out
+release: $(SRC) $(MAIN_SRC) $(HEADER)
+	g++ $(INCLUDE) $(CXX_RELEASE_FLAGS) $(LIBS) -o $(EXE_RELESE_NAME) $(MAIN_SRC) $(SRC) 
+
 
 # GoogleTest
 GTEST_DIR = /usr/local/gtest
